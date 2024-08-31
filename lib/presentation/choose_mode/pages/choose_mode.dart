@@ -1,3 +1,7 @@
+
+
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -37,19 +41,61 @@ class ChooseModePage extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: 18),
+                      fontSize: 18
+                   ),
                 ),
                 const SizedBox(
                   height: 21,
                 ),
-                const Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis enim purus sed phasellus. Cursus ornare id scelerisque aliquam.',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.grey,
-                      fontSize: 13),
-                  textAlign: TextAlign.center,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+
+                    Column(
+                      children: [
+                        ClipOval(
+                          child: BackdropFilter(
+                              filter: ImageFilter.blur(sigmaX: 15,sigmaY: 15),
+                            child:Container(
+                              width: 80,
+                              height: 80,
+                              decoration: const BoxDecoration(
+                                  color: Color(0xff30393c),
+                                  shape: BoxShape.circle
+                              ),
+                              child: SvgPicture.asset(
+                                  AppVectors.moon,
+                                fit: BoxFit.none,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 15,),
+                    Text('Dark Mode',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17,color: AppColors.grey)),
+
+                    const SizedBox(width: 20,),
+                    ClipOval(
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 15,sigmaY: 15),
+                        child:Container(
+                          width: 80,
+                          height: 80,
+                          decoration: const BoxDecoration(
+                              color: Color(0xff30393c),
+                              shape: BoxShape.circle
+                          ),
+                          child: SvgPicture.asset(
+                            AppVectors.sun,
+                            fit: BoxFit.none,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
+
                 const SizedBox(
                   height: 50,
                 ),
@@ -61,7 +107,8 @@ class ChooseModePage extends StatelessWidget {
                               builder: (BuildContext context) =>
                               const ChooseModePage()));
                     },
-                    title: 'Get Started')
+                    title: 'Get Started'
+                )
               ],
             ),
           ),
