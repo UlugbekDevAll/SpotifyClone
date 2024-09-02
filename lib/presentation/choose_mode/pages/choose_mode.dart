@@ -70,28 +70,35 @@ class ChooseModePage extends StatelessWidget {
                             ),
                           ),
                         ),
+                        SizedBox(height: 15,),
+                        Text('Dark Mode',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17,color: AppColors.grey)),
                       ],
                     ),
-                    SizedBox(height: 15,),
-                    Text('Dark Mode',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17,color: AppColors.grey)),
+
 
                     const SizedBox(width: 20,),
-                    ClipOval(
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 15,sigmaY: 15),
-                        child:Container(
-                          width: 80,
-                          height: 80,
-                          decoration: const BoxDecoration(
-                              color: Color(0xff30393c),
-                              shape: BoxShape.circle
-                          ),
-                          child: SvgPicture.asset(
-                            AppVectors.sun,
-                            fit: BoxFit.none,
+                    Column(
+                      children: [
+                        ClipOval(
+                          child: BackdropFilter(
+                            filter: ImageFilter.blur(sigmaX: 15,sigmaY: 15),
+                            child:Container(
+                              width: 80,
+                              height: 80,
+                              decoration: const BoxDecoration(
+                                  color: Color(0xff30393c),
+                                  shape: BoxShape.circle
+                              ),
+                              child: SvgPicture.asset(
+                                AppVectors.sun,
+                                fit: BoxFit.none,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                        SizedBox(height: 15,),
+                        Text('Light Mode',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17,color: AppColors.grey)),
+                      ],
                     ),
                   ],
                 ),
@@ -107,7 +114,7 @@ class ChooseModePage extends StatelessWidget {
                               builder: (BuildContext context) =>
                               const ChooseModePage()));
                     },
-                    title: 'Get Started'
+                    title: 'Continue'
                 )
               ],
             ),
